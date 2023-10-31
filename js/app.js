@@ -5,7 +5,6 @@ const Seattle = {
   minCustomer: 23,
   maxCustomer: 65,
   avgCookieSale: 6.3,
-  hourlySales: [],
   getRandomHourlyCookieSales: function() {
     for (let i=0; i <this.hoursOpen.length; i++) {
       let hourCookieSales = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1) + this.minCustomer) * this.avgCookieSale;
@@ -19,9 +18,11 @@ const Seattle = {
     };
     return sumSales;
   },
+  hourlySales: [],
 }
 
 Seattle.getRandomHourlyCookieSales();
+Seattle.dailyCookieSales();
 console.log (Seattle.hourlySales);
 console.log (Seattle.dailyCookieSales());
 
@@ -138,14 +139,63 @@ console.log (Lima.hourlySales);
 console.log (Lima.dailyCookieSales());
 
 
-const areaSales = document.getElementById("root");
+// const areaSales = document.getElementById("root");
 
-const seattleSales = document.createElement("section");
-areaSales.appendChild(seattleSales);
-const seattleSalesHeader = document.createElement("h2");
-seattleSalesHeader.textContent = 'Seattle';
-seattleSales.appendChild(seattleSalesHeader);
-const seattleSalesList = document.createElement("ul");
-seattleSalesList.textcontent = `${Seattle.hoursOpen}: ${Seattle.hourlySales}`
-seattleSales.appendChild(seattleSalesList);
+// const seattleSales = document.createElement("section");
+// areaSales.appendChild(seattleSales);
+// const seattleSalesHeader = document.createElement("h2");
+// seattleSalesHeader.textContent = 'Seattle';
+// seattleSales.appendChild(seattleSalesHeader);
+// const seattleSalesList = document.createElement("ul");
+// seattleSalesList.textcontent = `${Seattle.hoursOpen}: ${Seattle.hourlySales}`
+// seattleSales.appendChild(seattleSalesList);
 
+// function createHourlySalesList(cityhoursOpen , citygetRandomHourlyCookieSales, citydailyCookieSales) {
+//   const ul = document.createElement('ul');
+//   for (let i = 0; i < cityhoursOpen.length; i++) {
+//     const li = document.createElement('li');
+//     li.textContent = `${cityhoursOpen[i]}: ${cityhourlySales[i]}`;
+//     ul.appendChild(li);
+//   };
+//   const li = document.createElement('li');
+//   li.textContent = `Total: ${citydailyCookieSales}`;
+//   ul.appendChild(li);
+//   return ul;
+// }
+// const seattleSales = document.getElementById("seattleSales");
+// const hourlySales = createHourlySalesList(Seattle.hoursOpen, Seattle[getRandomHourlyCookieSales], Seattle.dailyCookieSales);
+// seattleSales.appendChild(hourlySales);
+
+
+function createHourlySalesList(cityhoursOpen , cityhourlySales, citydailyCookieSales) {
+  const ul = document.createElement('ul');
+  for (let i = 0; i < cityhoursOpen.length; i++) {
+    const li = document.createElement('li');
+    li.textContent = `${cityhoursOpen[i]}: ${cityhourlySales[i]}`;
+    ul.appendChild(li);
+  };
+  const li = document.createElement('li');
+  li.textContent = `Total: ${citydailyCookieSales}`;
+  ul.appendChild(li);
+  return ul;
+};
+
+const seattleSales = document.getElementById("seattleSales");
+const seattleHourlySalesList = createHourlySalesList(Seattle.hoursOpen, Seattle.hourlySales, Seattle.dailyCookieSales());
+seattleSales.appendChild(seattleHourlySalesList);
+
+const tokyoSales = document.getElementById("tokyoSales");
+const tokyoHourlySalesList = createHourlySalesList(Tokyo.hoursOpen, Tokyo.hourlySales, Tokyo.dailyCookieSales());
+tokyoSales.appendChild(tokyoHourlySalesList);
+
+const dubaiSales = document.getElementById("dubaiSales");
+const dubaiHourlySalesList = createHourlySalesList(Dubai.hoursOpen, Dubai.hourlySales, Dubai.dailyCookieSales());
+dubaiSales.appendChild(dubaiHourlySalesList);
+
+const parisSales = document.getElementById("parisSales");
+const parisHourlySalesList = createHourlySalesList(Paris.hoursOpen, Paris.hourlySales, Paris.dailyCookieSales());
+parisSales.appendChild(parisHourlySalesList);
+
+const limaSales = document.getElementById("limaSales");
+const limaHourlySalesList = createHourlySalesList(Lima.hoursOpen, Lima.hourlySales, Lima.dailyCookieSales());
+limaSales.appendChild(limaHourlySalesList);
