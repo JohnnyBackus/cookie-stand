@@ -5,6 +5,7 @@ const Seattle = {
   minCustomer: 23,
   maxCustomer: 65,
   avgCookieSale: 6.3,
+  hourlySales: [],
   getRandomHourlyCookieSales: function() {
     for (let i=0; i <this.hoursOpen.length; i++) {
       let hourCookieSales = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1) + this.minCustomer) * this.avgCookieSale;
@@ -18,7 +19,6 @@ const Seattle = {
     };
     return sumSales;
   },
-  hourlySales: [],
 }
 
 Seattle.getRandomHourlyCookieSales();
@@ -199,3 +199,7 @@ parisSales.appendChild(parisHourlySalesList);
 const limaSales = document.getElementById("limaSales");
 const limaHourlySalesList = createHourlySalesList(Lima.hoursOpen, Lima.hourlySales, Lima.dailyCookieSales());
 limaSales.appendChild(limaHourlySalesList);
+
+function render(city) {
+
+}
