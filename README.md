@@ -13,6 +13,6 @@ Website for Pat's Salmon Cookies
 
 ### Lighthouse Accessibility Report Score
 
-![Lighthouse Accessibility Report Score 10-##](file.png)
+![Lighthouse Accessibility Report Score 10-31](images/lighthouse_10-31_screenshot.png)
 
 ### Reflections and Comments
