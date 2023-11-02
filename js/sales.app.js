@@ -1,3 +1,5 @@
+let allStores = new Array();
+
 function Store(city, hoursOpen, phoneNumber, address, minCustomer, maxCustomer, avgCookieSale) {
   this.city = city;
   this.hoursOpen = hoursOpen;
@@ -21,8 +23,8 @@ function Store(city, hoursOpen, phoneNumber, address, minCustomer, maxCustomer, 
     };
     this.dailySales = sumSales;
   };
-};
-
+  allStores.push(this);
+}
 
 const seattleStore = new Store('Seattle', ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'], '123-456-7890', '2901 3rd Ave #300, Seattle, WA 98121', 23, 65, 6.3);
 seattleStore.getRandomHourlySales();
@@ -49,7 +51,6 @@ limaStore.getRandomHourlySales();
 limaStore.totalDailyCookieSales();
 console.log(limaStore);
 
-allStores = [seattleStore, tokyoStore, dubaiStore, parisStore, limaStore];
 
 Store.prototype.renderTable = function() {
   let tableBody = document.getElementById("salesTableBody");
@@ -89,41 +90,25 @@ function createTableFooter () {
   firstCell.textContent = 'Hourly Totals for All locations';
   footerRow.appendChild(firstCell);
 
-  // totalHourlyCookieSales = function() {
-    //   let sumSales = 0;
-    //   for (let i=0; i < 14; i++) {
-      //     sumSales += allStores[i].hourlySales[i];
-      //   };
-      //   return sumSales;
-      // };
+  for (let i = 0; i < allStores[0].hourlySales.length; i++) {
+    let hourlyTotal = 0;
+    for (let j = 0; j < allStores.length; j++) {
+      hourlyTotal += allStores[j].hourlySales[i];
+    }
+    let hourlyTotalCell = document.createElement("td");
+    hourlyTotalCell.textContent = `${hourlyTotal}`;
+    footerRow.appendChild(hourlyTotalCell);
+  };
 
-      // let hourlyTotalCell = document.createElement("td");
-      // hourlyTotalCell.textContent = `${totalHourlyCookieSales()}`;
-      // footerRow.appendChild(hourlyTotalCell);
-
-      for (let i = 0; i < allStores[0].hourlySales.length; i++) {
-        let hourlyTotal = 0;
-        for (let j = 0; j < allStores.length; j++) {
-          hourlyTotal += allStores[j].hourlySales[i];
-        }
-        let hourlyTotalCell = document.createElement("td");
-        hourlyTotalCell.textContent = `${hourlyTotal}`;
-        footerRow.appendChild(hourlyTotalCell);
-      };
-
-      totalDailyCookieSales = function() {
-        let sumSales = 0;
-        for (let i=0; i <allStores.length; i++) {
-          sumSales += allStores[i].dailySales;
-        };
-        return sumSales;
-      };
-      let totalCell = document.createElement("td");
-      totalCell.textContent = `${totalDailyCookieSales()}`;
-      footerRow.appendChild(totalCell);
+  totalDailyCookieSales = function() {
+    let sumSales = 0;
+    for (let i=0; i <allStores.length; i++) {
+      sumSales += allStores[i].dailySales;
     };
-    createTableFooter();
-
-// Later, I will create another function to display store info on the home page.
-    renderStoreInfo = function() {
-    };
+    return sumSales;
+  };
+  let totalCell = document.createElement("td");
+  totalCell.textContent = `${totalDailyCookieSales()}`;
+  footerRow.appendChild(totalCell);
+};
+createTableFooter();

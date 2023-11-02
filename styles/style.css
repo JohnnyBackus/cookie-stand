@@ -11,30 +11,57 @@ header {
 
 header h1 {
   color: salmon;
-  font: Righteous;
+  font-family: 'Righteous', sans-serif;
   font-size: 30pt;
   font-style: italic;
   text-align: center;
+  padding: 30px;
 }
 
-header nav {
+nav {
   background-color: salmon;
   padding: .25em;
   text-align: left;
 }
-header nav ul li {
+
+nav ul {
+  margin: 0.5em 0.5em 0.5em 2em;
+}
+
+nav ul li {
   display: inline-block;
-  margin: 0.5em;
+  margin: 0 2em 0 1em;
 }
 
 a {color: (#111);
 }
 
-#salmonBox img{
-  margin-left: auto;
-  width: 70%;
+h2 {
+  font-size: 20pt;
+  font-family: 'Righteous', sans-serif;
+  padding: 0.25em 0 0.25em 0;
+  margin-top: 20px;;
+
+}
+#salmonBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #111;
+}
+#salmonBox img {
+  align-self: center;
 }
 
+#storeInfo {
+  margin-left: 30px;
+}
+
+#storeInfo p {
+  padding-bottom: 0.25em;
+  padding-left: 2em;
+}
 section.sales {
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: center;
@@ -42,17 +69,24 @@ section.sales {
 }
 section.sales th {
   background-color: gray;
+  color: white;
   font-family: Arial, Helvetica, sans-serif;
   padding: 0.25em;
 }
 
 section.sales tbody td {
+  background-color: salmon;
   border: 1px solid black;
   padding: 0.25em;
 }
 
+tbody tr td:last-child {
+  background-color: gray;
+}
+
 section.sales tfoot {
   background-color: gray;
+  color: white;
 }
 footer {
     /* border: 1px solid black; */
@@ -60,6 +94,7 @@ footer {
     color: #111;
     font-size: 14pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    padding: 10px;
+    height: 50px;
+    padding-top: 30px;
     text-align: center;
 }
