@@ -21,7 +21,21 @@
       </nav>
     </header>
 
-    <main id="root">
+    <main>
+      <form id="storeForm">
+        <fieldset>
+          <legend>Add a new store to the table!!!</legend>
+          <label for="location">Location Name</label>
+            <input type="text" id="location" name="location" required />
+          <label for="minCust">Minimum Customers Per Hour</label>
+            <input type="number" id="minCust" name="minCust" required/>
+          <label for="maxCust">Maximum Customers Per Hour</label>
+            <input type="number" id="maxCust" name="maxCust" required>
+          <label for="avgCookie">Average Cookies Per Sale</label>
+            <input type="number" id="avgCookie" name="avgCookie" required/>
+          <button type="submit">Click here to add!</button>
+        </fieldset>
+      </form>
       <section class="sales">
         <table id="salesTable">
           <thead>

@@ -98,3 +98,23 @@ footer {
     padding-top: 30px;
     text-align: center;
 }
+
+form{
+  margin: 20px,
+}
+
+fieldset {
+  box-sizing: border-box;
+  border: 1px solid #999;
+  width: 95%;
+  margin-left: 2.5%;
+}
+
+legend {
+  font-family: 'Righteous', sans-serif;
+  color: salmon;
+}
+
+label {
+  font-size: 10pt;
+}
