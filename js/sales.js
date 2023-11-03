@@ -1,29 +1,23 @@
-Store.prototype.renderTable = function() {
+function renderTable () {
   let tableBody = document.getElementById("salesTableBody");
-  let tableRow = document.createElement("tr");
-  tableBody.appendChild(tableRow);
-
-  let locationCell = document.createElement("td");
-  locationCell.textContent = `${this.city}`;
-  tableRow.appendChild(locationCell);
-
-  for (let i = 0; i < this.hoursOpen.length; i++) {
-    let hourlySaleCell = document.createElement("td");
-    hourlySaleCell.textContent = `${this.hourlySales[i]}`;
-    tableRow.appendChild(hourlySaleCell);
+  for (let i = 0; i < allStores.length; i++) {
+    let tableRow = document.createElement("tr");
+    tableBody.appendChild(tableRow);
+    let locationCell = document.createElement("td");
+    locationCell.textContent = `${allStores[i].city}`;
+    tableRow.appendChild(locationCell);
+    for (let j = 0; j < allStores[0].hourlySales.length; j++) {
+      let hourlySaleCell = document.createElement("td");
+      hourlySaleCell.textContent = `${allStores[i].hourlySales[j]}`;
+      tableRow.appendChild(hourlySaleCell);
+    };
+    let locationTotalCell = document.createElement("td");
+    locationTotalCell.textContent = `${allStores[i].dailySales}`;
+    tableRow.appendChild(locationTotalCell);
   };
-
-  let locationTotalCell = document.createElement("td");
-  locationTotalCell.textContent = `${this.dailySales}`;
-  tableRow.appendChild(locationTotalCell);
-
 };
+renderTable();
 
-seattleStore.renderTable();
-dubaiStore.renderTable();
-tokyoStore.renderTable();
-parisStore.renderTable();
-limaStore.renderTable();
 
 function createTableFooter () {
   let table = document.getElementById("salesTable");
@@ -50,7 +44,7 @@ function createTableFooter () {
     footerRow.appendChild(hourlyTotalCell);
   };
 
-  totalDailyCookieSales = function() {
+  allStoreTotalDailyCookieSales = function() {
     let sumSales = 0;
     for (let i=0; i <allStores.length; i++) {
       sumSales += allStores[i].dailySales;
@@ -58,7 +52,7 @@ function createTableFooter () {
     return sumSales;
   };
   let totalCell = document.createElement("td");
-  totalCell.textContent = `${totalDailyCookieSales()}`;
+  totalCell.textContent = `${allStoreTotalDailyCookieSales()}`;
   footerRow.appendChild(totalCell);
 };
 createTableFooter();
@@ -69,12 +63,32 @@ let inputs = document.querySelectorAll("input");
 let newStoreEntry = {};
 const storeLocation = document.getElementById("city");
 
-for( let i = 0; i < inputs.length; i++ ) {
+function renderNewTableRow() {
+  let tableBody = document.getElementById("salesTableBody");
+  let tableRow = document.createElement("tr");
+  tableBody.appendChild(tableRow);
+
+  let locationCell = document.createElement("td");
+  locationCell.textContent = `${allStores[(allStores.length - 1)].city}`;
+  tableRow.appendChild(locationCell);
+
+  for (let i = 0; i < allStores[(allStores.length - 1)].hourlySales.length; i++) {
+    let hourlySaleCell = document.createElement("td");
+    hourlySaleCell.textContent = `${allStores[(allStores.length - 1)].hourlySales[i]}`;
+    tableRow.appendChild(hourlySaleCell);
+  };
+
+  let locationTotalCell = document.createElement("td");
+  locationTotalCell.textContent = `${allStores[(allStores.length - 1)].dailySales}`;
+  tableRow.appendChild(locationTotalCell);
+};
+
+for(let i = 0; i < inputs.length; i++) {
   inputs[i].addEventListener("change", function(event) {
     console.log(event.target.name, event.target.value);
     newStoreEntry[event.target.name] = event.target.value;
   });
-}
+};
 
 storeForm.addEventListener("submit", function(event) {
   event.preventDefault();
@@ -82,10 +96,8 @@ storeForm.addEventListener("submit", function(event) {
   storeLocation.focus();
   // console.log(newStoreEntry);
   let store = new Store( newStoreEntry.city, ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'], "", "",newStoreEntry.minCust, newStoreEntry.maxCust, newStoreEntry.avgCookie);
-  store.getRandomHourlySales();
-  store.totalDailyCookieSales();
-  store.renderTable();
-  // console.log(allStores);
+  renderNewTableRow();
+  console.log(allStores);
   createTableFooter();
   }
 );

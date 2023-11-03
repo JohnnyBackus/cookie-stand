@@ -7,7 +7,7 @@ function renderStoreInfo() {
       storeCity.textContent = `${allStores[i].city}`;
       individualStoreInfo.appendChild(storeCity);
     let storeHours = document.createElement("p");
-      storeHours.textContent = `Hours Open: ${allStores[i].hoursOpen[0]}-${allStores[i].hoursOpen.slice(-1)[0]}`;//cool trick ChatGPT taught me for accessing the last index value
+      storeHours.textContent = `Hours Open: ${allStores[i].hoursOpen[0]}-${allStores[i].hoursOpen.slice(-1)[0]}`;
       individualStoreInfo.appendChild(storeHours);
     let storePhone = document.createElement("p");
       storePhone.textContent = `Contact Info: ${allStores[i].phoneNumber}`;
@@ -17,4 +17,5 @@ function renderStoreInfo() {
       individualStoreInfo.appendChild(storeLocation);
   };
 };
+
 renderStoreInfo();
