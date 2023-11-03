@@ -71,7 +71,7 @@ section.sales th {
   background-color: gray;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  padding: 0.25em;
+  padding: 5px;
 }
 
 section.sales tbody td {
@@ -82,11 +82,13 @@ section.sales tbody td {
 
 tbody tr td:last-child {
   background-color: gray;
+  border: none;
 }
 
-section.sales tfoot {
+section.sales tfoot td {
   background-color: gray;
   color: white;
+  padding: 5px 0px 5px 0px;
 }
 footer {
     /* border: 1px solid black; */
@@ -97,4 +99,24 @@ footer {
     height: 50px;
     padding-top: 30px;
     text-align: center;
+}
+
+form{
+  margin: 20px,
+}
+
+fieldset {
+  box-sizing: border-box;
+  border: 1px solid #999;
+  width: 95%;
+  margin-left: 2.5%;
+}
+
+legend {
+  font-family: 'Righteous', sans-serif;
+  color: salmon;
+}
+
+label {
+  font-size: 10pt;
 }

@@ -1,8 +1,8 @@
-# LAB - 08a Cookie Stand
+# LAB - 09 Cookie Stand
 
 ## Pat's Salmon Cookies
 
-Continuing to build the website for Pat's Salmon Cookies
+Continuing to build the website for Pat's Salmon Cookies: Today we build a form!
 
 ### Author: Johnny Backus
 
@@ -12,7 +12,7 @@ Continuing to build the website for Pat's Salmon Cookies
 
 ### Lighthouse Accessibility Report Score
 
-![Lighthouse Accessibility Report Score 11-1](images/lighthouse_11-1.png)
+![Lighthouse Accessibility Report Score 11-2](images/lighthouse_11-2.png)
 
 ### Reflections and Comments
-With this assignment I was often thwarted by misapplying my tools as often as I was stumped by code. For example, using the link in my live preview took me back to the page that was being deployed from my main branch on GitHub. It took me way longer than it should have to figure out that this is why I wasn't seeing my changes or has unexpected errors. Unfortunatley, this happened twice before I realized how I was tripping myself up. It also took me a while to figure that I needed two JS files since each page quits rendering when the JS code gets to an element ID that is not on that page. Once again, learning the error codes and how to best use the Chrome developer tools is going to help a lot.
+It's hard to keep track of what's calling who from where. I see how it's efficient, but it's gonna take some getting used to. On the bright side, my code is fairly clean. This lab took me about seven hours... a bit longer than I had hoped. Creating the form wasn't too hard, but figuring out how to store and then access the information was super confusing. I think precise understanding of different definitions will help in the future.
