@@ -1,5 +1,24 @@
+Store.prototype.renderTable = function() {
+  let tableBody = document.getElementById("salesTableBody");
+  let tableRow = document.createElement("tr");
+  tableBody.appendChild(tableRow);
 
-// Later, I can create a single renderTable function with the allStores array and a for loop.
+  let locationCell = document.createElement("td");
+  locationCell.textContent = `${this.city}`;
+  tableRow.appendChild(locationCell);
+
+  for (let i = 0; i < this.hoursOpen.length; i++) {
+    let hourlySaleCell = document.createElement("td");
+    hourlySaleCell.textContent = `${this.hourlySales[i]}`;
+    tableRow.appendChild(hourlySaleCell);
+  };
+
+  let locationTotalCell = document.createElement("td");
+  locationTotalCell.textContent = `${this.dailySales}`;
+  tableRow.appendChild(locationTotalCell);
+
+};
+
 seattleStore.renderTable();
 dubaiStore.renderTable();
 tokyoStore.renderTable();
@@ -8,6 +27,10 @@ limaStore.renderTable();
 
 function createTableFooter () {
   let table = document.getElementById("salesTable");
+  let existingTableFooter = table.querySelector("tfoot");
+    if (existingTableFooter) {
+      table.removeChild(existingTableFooter);
+    };
   let tableFooter = document.createElement("tfoot");
   table.appendChild(tableFooter);
   let footerRow = document.createElement("tr");
@@ -43,30 +66,23 @@ createTableFooter();
 
 let storeForm = document.getElementById("storeForm");
 let inputs = document.querySelectorAll("input");
-let newStoreEntryObject = {};
-let newStoreEntry = [];
-
+let newStoreEntry = {};
 
 for( let i = 0; i < inputs.length; i++ ) {
   inputs[i].addEventListener("change", function(event) {
     console.log(event.target.name, event.target.value);
-    newStoreEntryObject[event.target.name] = event.target.value;
+    newStoreEntry[event.target.name] = event.target.value;
   });
 }
 
 storeForm.addEventListener("submit", function(event) {
   event.preventDefault();
-  console.log(newStoreEntryObject);
-  // function Store(city, hoursOpen, phoneNumber, address, minCustomer, maxCustomer, avgCookieSale) {
-
-  let store = new Store( newStoreEntryObject.location, ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'], "", "",newStoreEntryObject.minCust, newStoreEntryObject.maxCust, newStoreEntryObject.avgCookie);
+  // console.log(newStoreEntry);
+  let store = new Store( newStoreEntry.location, ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'], "", "",newStoreEntry.minCust, newStoreEntry.maxCust, newStoreEntry.avgCookie);
   store.getRandomHourlySales();
   store.totalDailyCookieSales();
   store.renderTable();
-  console.log(allStores);
-
-  // seattleStore.renderTable();
-  // renderNewStoreRow();
-  // createTableFooter();
+  // console.log(allStores);
+  createTableFooter();
   }
 );

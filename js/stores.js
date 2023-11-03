@@ -26,26 +26,6 @@ function Store(city, hoursOpen, phoneNumber, address, minCustomer, maxCustomer, 
   allStores.push(this);
 }
 
-Store.prototype.renderTable = function() {
-  let tableBody = document.getElementById("salesTableBody");
-  let tableRow = document.createElement("tr");
-  tableBody.appendChild(tableRow);
-
-  let locationCell = document.createElement("td");
-  locationCell.textContent = `${this.city}`;
-  tableRow.appendChild(locationCell);
-
-  for (let i = 0; i < this.hoursOpen.length; i++) {
-    let hourlySaleCell = document.createElement("td");
-    hourlySaleCell.textContent = `${this.hourlySales[i]}`;
-    tableRow.appendChild(hourlySaleCell);
-  };
-
-  let locationTotalCell = document.createElement("td");
-  locationTotalCell.textContent = `${this.dailySales}`;
-  tableRow.appendChild(locationTotalCell);
-
-};
 
 const seattleStore = new Store('Seattle', ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'], '123-456-7890', '2901 3rd Ave #300, Seattle, WA 98121', 23, 65, 6.3);
 seattleStore.getRandomHourlySales();
