@@ -1,5 +1,23 @@
 function renderTable () {
+  let tableHead = document.getElementById("salesTableHead");
   let tableBody = document.getElementById("salesTableBody");
+  let tableHeaderRow = document.createElement("tr");
+  tableHead.appendChild(tableHeaderRow);
+
+  let firstCell = document.createElement("td");
+  firstCell.textContent = 'Locations';
+  tableHeaderRow.appendChild(firstCell);
+
+  for (let i = 0; i < allStores[0].hoursOpen.length; i++) {
+    let hourCell = document.createElement("td");
+    hourCell.textContent = `${allStores[0].hoursOpen[i]}`;
+    tableHeaderRow.appendChild(hourCell);
+  };
+
+  let locationTotalCell = document.createElement("td");
+    locationTotalCell.textContent = 'Location Totals';
+    tableHeaderRow.appendChild(locationTotalCell);
+
   for (let i = 0; i < allStores.length; i++) {
     let tableRow = document.createElement("tr");
     tableBody.appendChild(tableRow);

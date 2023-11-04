@@ -1,18 +1,18 @@
-# LAB - 09 Cookie Stand
+# LAB - 10b Cookie Stand
 
 ## Pat's Salmon Cookies
 
-Continuing to build the website for Pat's Salmon Cookies: Today we build a form!
+Putting in some finishing touches!
 
 ### Author: Johnny Backus
 
 ### Links and Resources
 
-* ChatGPT was used frequently (though it certainly let me astray a couple times)
+* ChatGPT was used frequently throughout this project (though it certainly let me astray a couple times).
 
 ### Lighthouse Accessibility Report Score
 
-![Lighthouse Accessibility Report Score 11-2](images/lighthouse_11-2.png)
+![Lighthouse Accessibility Report Score 11-2](images/lighthouse_11-3.png)
 
 ### Reflections and Comments
-It's hard to keep track of what's calling who from where. I see how it's efficient, but it's gonna take some getting used to. On the bright side, my code is fairly clean. This lab took me about seven hours... a bit longer than I had hoped. Creating the form wasn't too hard, but figuring out how to store and then access the information was super confusing. I think precise understanding of different definitions will help in the future.
+We were limited to one hour today, so I made some minor style buffs and added made populating the table header row part of my renderTable function and removed the hardcoding from the HTML. I'm pretty happy with how many lines of code I was able to lop off over the course of the week. This took me as long as I expected since we were limited to one hour. Definitely for the best, because I would have spent too long continuing to try to figure out how to turn the links in my header black.
