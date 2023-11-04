@@ -71,11 +71,13 @@ section.sales {
   text-align: center;
   margin: 5%;
 }
-section.sales th {
+thead {
   background-color: gray;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  padding: 5px;
+}
+td {
+padding: 0.25em;
 }
 
 section.sales tbody td {
